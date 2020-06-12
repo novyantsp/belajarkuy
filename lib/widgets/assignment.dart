@@ -52,7 +52,7 @@ class Assignment extends StatelessWidget {
                     children: <Widget>[
                       Text(
                         "$title",
-                        style: Theme.of(context).textTheme.subtitle,
+                        style: Theme.of(context).textTheme.subtitle2,
                       ),
                       Text("$desc")
                     ],

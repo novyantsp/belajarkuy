@@ -53,7 +53,7 @@ class HomeScreen extends StatelessWidget {
                     "Hi, \nLenop",
                     style: Theme.of(context)
                         .textTheme
-                        .display1
+                        .headline4
                         .copyWith(fontWeight: FontWeight.w900),
                   ),
                   SearchBar(),

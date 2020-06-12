@@ -1,5 +1,4 @@
 import 'package:belajarkuy/screens/home_screen.dart';
-import 'package:belajarkuy/widgets/video_player.dart';
 import 'package:flutter/material.dart';
 import 'constants/constants.dart';
 

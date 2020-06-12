@@ -58,7 +58,7 @@ class SessionCard extends StatelessWidget {
                     SizedBox(width: 10),
                     Text(
                       "Part $seassionNum: $title",
-                      style: Theme.of(context).textTheme.subtitle,
+                      style: Theme.of(context).textTheme.subtitle2,
                     )
                   ],
                 ),

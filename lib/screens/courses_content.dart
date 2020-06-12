@@ -56,7 +56,7 @@ class CourseContent extends StatelessWidget {
                         ),
                         Text(
                           "$title",
-                          style: Theme.of(context).textTheme.display1.copyWith(
+                          style: Theme.of(context).textTheme.headline4.copyWith(
                                 fontWeight: FontWeight.w800,
                                 fontSize: 30,
                               ),

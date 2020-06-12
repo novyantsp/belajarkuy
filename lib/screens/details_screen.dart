@@ -57,7 +57,7 @@ class DetailsScreen extends StatelessWidget {
                         ),
                         Text(
                           "Python Programming",
-                          style: Theme.of(context).textTheme.display1.copyWith(
+                          style: Theme.of(context).textTheme.headline4.copyWith(
                                 fontWeight: FontWeight.w800,
                                 fontSize: 30,
                               ),
@@ -85,7 +85,6 @@ class DetailsScreen extends StatelessWidget {
                       spacing: 20,
                       runSpacing: 20,
                       children: pythonData.map((content) {
-                        String npmp = content['number'];
                         return SessionCard(
                           seassionNum: content['number'],
                           title: content['title'],
@@ -104,7 +103,7 @@ class DetailsScreen extends StatelessWidget {
                       "Assignment",
                       style: Theme.of(context)
                           .textTheme
-                          .title
+                          .headline6
                           .copyWith(fontWeight: FontWeight.bold),
                     ),
                     SizedBox(height: 20),

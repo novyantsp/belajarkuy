@@ -1,5 +1,5 @@
 import 'package:belajarkuy/constants/constants.dart';
-import 'package:belajarkuy/widgets/bottom_navigation_belajarkuy.dart';
+import 'package:belajarkuy/widgets/bottom_navigation_courses.dart';
 import 'package:belajarkuy/widgets/video_player.dart';
 import 'package:flutter/material.dart';
 
@@ -16,7 +16,7 @@ class CourseContent extends StatelessWidget {
     var size = MediaQuery.of(context).size;
 
     return Scaffold(
-      bottomNavigationBar: BottomNavigationBelajarkuy(),
+      bottomNavigationBar: BottomNavigationCourse(),
       body: Stack(
         children: <Widget>[
           Container(

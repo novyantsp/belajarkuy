@@ -1,5 +1,6 @@
 import 'package:belajarkuy/constants/constants.dart';
 import 'package:belajarkuy/models/courses.dart';
+import 'package:belajarkuy/screens/assignment_screen.dart';
 import 'package:belajarkuy/widgets/assignment.dart';
 import 'package:belajarkuy/widgets/bottom_navigation_belajarkuy.dart';
 import 'package:belajarkuy/widgets/course_list.dart';
@@ -116,7 +117,10 @@ class DetailsScreen extends StatelessWidget {
                           title: content['title'],
                           desc: content['desc'],
                           press: () {
-                            print("Container was tapped");
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => AssignmentScreen(title: content['title'], desc: content['desc'])));
                           },
                         );
                       }).toList(),

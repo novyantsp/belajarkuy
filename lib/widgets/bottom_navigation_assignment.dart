@@ -1,6 +1,4 @@
-import 'package:belajarkuy/constants/constants.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class BottomNavigationAssignment extends StatefulWidget {
   @override
@@ -13,12 +11,6 @@ class _BottomNavigationAssignmentState extends State<BottomNavigationAssignment>
     fontSize: 12,
     fontWeight: FontWeight.w500,
   );
-
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {

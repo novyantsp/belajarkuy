@@ -1,3 +1,4 @@
+import 'package:belajarkuy/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -17,6 +18,10 @@ class _BottomNavigationBelajarkuyState extends State<BottomNavigationBelajarkuy>
     setState(() {
       _selectedIndex = index;
     });
+    Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => HomeScreen()));
   }
 
   @override
@@ -41,19 +46,19 @@ class _BottomNavigationBelajarkuyState extends State<BottomNavigationBelajarkuy>
       child: BottomNavigationBar(items: <BottomNavigationBarItem>[
         BottomNavigationBarItem(
           icon: _selectedIndex == 0
-            ? new SvgPicture.asset('assets/icons/home_colored.svg')
+            ? new SvgPicture.asset('assets/icons/home.svg')
             : new SvgPicture.asset('assets/icons/home.svg'),
-          title: Text('Home', style: bottomTextStyle,) 
+          title: Text('Home', style: bottomTextStyle,) ,
         ),
         BottomNavigationBarItem(
           icon: _selectedIndex == 1
-            ? new SvgPicture.asset('assets/icons/watch_colored.svg')
+            ? new SvgPicture.asset('assets/icons/watch.svg')
             : new SvgPicture.asset('assets/icons/watch.svg'),
           title: Text('My Course', style: bottomTextStyle,) 
         ),
       ],
       currentIndex: _selectedIndex,
-      selectedItemColor: Color(0xFFF8AA70),
+      selectedItemColor: Color(0xFF8E8E8E),
       unselectedItemColor: Color(0xFF8E8E8E),
       onTap: _onItemTapped,
       backgroundColor: Colors.transparent,

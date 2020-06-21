@@ -1,14 +1,25 @@
-import 'package:belajarkuy/models/courses.dart';
+import 'package:belajarkuy/api/courses_api.dart';
+import 'package:belajarkuy/models/course.dart';
 import 'package:belajarkuy/widgets/bottom_navigation_belajarkuy.dart';
 import 'package:belajarkuy/widgets/category_card.dart';
 import 'package:belajarkuy/widgets/search_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:belajarkuy/models/courses.dart';
 
-import 'details_screen.dart';
+class HomeScreen extends StatefulWidget {
+  @override
+  _HomeScreenState createState() => _HomeScreenState();
+}
 
-class HomeScreen extends StatelessWidget {
+class _HomeScreenState extends State<HomeScreen> {
+  CoursesApi coursesApi = CoursesApi();
+
+  @override
+  void initState() {
+    super.initState();
+    coursesApi.fetchAllCourses();
+  }
+
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context)
@@ -59,25 +70,50 @@ class HomeScreen extends StatelessWidget {
                   ),
                   SearchBar(),
                   Expanded(
-                    child: GridView.count(
-                      crossAxisCount: 2,
-                      childAspectRatio: .85,
-                      crossAxisSpacing: 20,
-                      mainAxisSpacing: 20,
-                      children: courseContent.map((content) {
-                        return CategoryCard(
-                          title: content['title'],
-                          svgSrc: content['svgSrc'],
-                          press: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => DetailsScreen()));
-                          },
-                        );
-                      }).toList(),
+                    child: FutureBuilder(
+                      future: coursesApi.fetchAllCourses(),
+                      builder: (BuildContext context,
+                          AsyncSnapshot<List<Course>> snapshot) {
+                        switch (snapshot.connectionState) {
+                          case ConnectionState.none:
+                            return Container(
+                              child: Center(
+                                child: CircularProgressIndicator(),
+                              ),
+                            );
+                            break;
+                          case ConnectionState.waiting:
+                            return Container(
+                              child: Center(
+                                child: CircularProgressIndicator(),
+                              ),
+                            );
+                            break;
+                          case ConnectionState.active:
+                            return Container(
+                              child: Center(
+                                child: CircularProgressIndicator(),
+                              ),
+                            );
+                            break;
+                          case ConnectionState.done:
+                            if (snapshot.hasError) {
+                              return Container(
+                                child: Center(
+                                  child: Text("Something Wrong"),
+                                ),
+                              );
+                            } else {
+                              return CategoryCard(listData: snapshot.data);
+                            }
+                            break;
+                        }
+
+                        return Text('Oops');
+                      },
                     ),
                   ),
+                  SizedBox(height: 15),
                 ],
               ),
             ),

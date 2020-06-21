@@ -7,8 +7,15 @@ class CourseContent extends StatelessWidget {
   final videoURL;
   final title;
   final time;
+  final description;
+  final courseID;
+  final contentID;
+  final courseDesc;
+  final courseCount;
+  final courseTitle;
 
-  const CourseContent({Key key, this.title, this.videoURL, this.time})
+  const CourseContent(
+      {Key key, this.title, this.videoURL, this.time, this.description, this.courseID, this.contentID, this.courseDesc, this.courseCount, this.courseTitle})
       : super(key: key);
 
   @override
@@ -16,9 +23,16 @@ class CourseContent extends StatelessWidget {
     var size = MediaQuery.of(context).size;
 
     return Scaffold(
-      bottomNavigationBar: BottomNavigationCourse(),
+      bottomNavigationBar: BottomNavigationCourse(
+        courseID: courseID, 
+        contentID: contentID,
+        courseCount: courseCount,
+        courseDesc: courseDesc,
+        courseTitle: courseTitle,
+        ),
       body: Stack(
         children: <Widget>[
+          
           Container(
             height: size.height * .49,
             decoration: BoxDecoration(
@@ -58,7 +72,7 @@ class CourseContent extends StatelessWidget {
                           "$title",
                           style: Theme.of(context).textTheme.headline4.copyWith(
                                 fontWeight: FontWeight.w800,
-                                fontSize: 30,
+                                fontSize: 24,
                               ),
                         ),
                       ],
@@ -95,19 +109,19 @@ class CourseContent extends StatelessWidget {
                               child: Column(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceEvenly,
-                                crossAxisAlignment:
-                                    CrossAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
                                 children: <Widget>[
-                                  Text(
-                                    "$title",
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .headline6,
-                                  ),
+                                  Text("$title",
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .headline6
+                                          .copyWith(
+                                              fontWeight: FontWeight.w400,
+                                              fontSize: 18)),
                                   Padding(
                                     padding: const EdgeInsets.only(top: 15),
-                                    child: Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tellus tellus, pulvinar vitae eros et, feugiat imperdiet sem. Donec ultricies eleifend leo a rhoncus. Pellentesque id nisi neque. Donec maximus massa sem. Nulla tincidunt gravida leo, at hendrerit arcu ornare vulputate. Nam id nibh mollis, tincidunt justo quis, gravida nisi. Vivamus tincidunt turpis a est hendrerit, ut fringilla dolor semper. Sed mollis nulla nisi, at ornare nibh sollicitudin nec.\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tellus tellus, pulvinar vitae eros et, feugiat imperdiet sem. Donec ultricies eleifend leo a rhoncus. Pellentesque id nisi neque. Donec maximus massa sem. Nulla tincidunt gravida leo, at hendrerit arcu ornare vulputate. Nam id nibh mollis, tincidunt justo quis, gravida nisi. Vivamus tincidunt turpis a est hendrerit, ut fringilla dolor semper. Sed mollis nulla nisi, at ornare nibh sollicitudin nec."),
-                                  )
+                                    child: Text("$description"),
+                                  ),
                                 ],
                               ),
                             ),

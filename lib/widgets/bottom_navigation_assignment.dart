@@ -6,7 +6,6 @@ class BottomNavigationAssignment extends StatefulWidget {
 }
 
 class _BottomNavigationAssignmentState extends State<BottomNavigationAssignment> {
-  int _selectedIndex = 0;
   var bottomTextStyle = TextStyle(
     fontSize: 12,
     fontWeight: FontWeight.w500,

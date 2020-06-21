@@ -1,5 +1,3 @@
-import 'package:belajarkuy/screens/courses_content.dart';
-
 const pythonData = [
   {'number': '01', 'title': 'Welcome to the Course', 'time': '5:35', 'videoURL' : 'https://www.youtube.com/watch?v=SQ6dHC9msEA'},
   {'number': '02', 'title': 'Python - Intro', 'time': '19:04', 'videoURL' : 'https://www.youtube.com/watch?v=SQ6dHC9msEA'},
